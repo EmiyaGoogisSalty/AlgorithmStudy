@@ -1,215 +1,215 @@
-/*
-	ÀÌÁß¿¬°á ¸®½ºÆ®ÀÇ ±¸Á¶
+// /*
+// 	ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	@-[ | | ] <-> [ p | data | n ] <-> [ p | data | n ] <->[ | | ]-@
-	   header		    node								trailer
-	
-	ÀÌÁß¿¬°á ¸®½ºÆ®´Â Çì´õ¿Í Æ®·¹ÀÏ·¯¸¦ °¡Áö°íÀÖÀ½ (³Ê¹Ì³ëµå) ÅëÀÏ¼ºÀ» °®Ãß±âÀ§ÇØ..
+// 	@-[ | | ] <-> [ p | data | n ] <-> [ p | data | n ] <->[ | | ]-@
+// 	   header		    node								trailer
 
-	ÀÌÁß¿¬°á¸®½ºÆ® ÀåÁ¡
-		- ¸µÅ©°¡ ¾ç¹æÇâÀÌ¹Ç·Î ¾ç¹æÇâ°Ë»öÀÌ °¡´É
+// 	ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½Ê¹Ì³ï¿½ï¿½) ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½ï¿½ï¿½..
 
-	ÀÌÁß¿¬°á¸®½ºÆ® ´ÜÁ¡
-		- ÀÌÀü³ëµå¸µÅ©¸¦ À§ÇÑ ¿©ºÐÀÇ °ø°£ »ç¿ë
-		- µ¥ÀÌÅÍÀÇ »ðÀÔ°ú »èÁ¦±¸ÇöÀÌ ´õ º¹Àâ
+// 	ï¿½ï¿½ï¿½ß¿ï¿½ï¿½á¸®ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+// 		- ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	Ãß°¡ÇÒ ±â´É
-		- ¹Ýº¹ÀÚ Áö¿ø
-		- µ¥ÀÌÅÍ °Ë»ö °¡´É
-		- ¹ü¿ë µ¥ÀÌÅÍ ÀúÀåÀ» À§ÇÑ Å¬·¡½º ÅÆÇÃ¸´ ÀÛ¼º
-*/
+// 	ï¿½ï¿½ï¿½ß¿ï¿½ï¿½á¸®ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+// 		- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å¸µÅ©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+// 		- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#include <iostream>
+// 	ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+// 		- ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 		- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 		- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½Û¼ï¿½
+// */
 
-using namespace std;
+// #include <iostream>
 
-template<typename T>
-struct Node
-{
-	T data;
-	Node* prev;
-	Node* next;
-};
+// using namespace std;
 
-template <typename T>
-class DoublyLinkedList
-{
-	int count; //ÇöÀç¿¬°á¸®½ºÆ®¿¡ µé¾î°¡ÀÖ´Â ³ëµåÀÇ °³¼ö
-	Node<T>* header;
-	Node<T>* trailer;
+// template<typename T>
+// struct Node
+// {
+// 	T data;
+// 	Node* prev;
+// 	Node* next;
+// };
 
-public:
-	class iterator
-	{
-	private:
-		Node<T>* ptr;
+// template <typename T>
+// class DoublyLinkedList
+// {
+// 	int count; //ï¿½ï¿½ï¿½ç¿¬ï¿½á¸®ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 	Node<T>* header;
+// 	Node<T>* trailer;
 
-	public: //2°³ »ý¼ºÀÚ 
-		iterator() :ptr(nullptr) {}
-		iterator(Node<T>* p) : ptr(p) {}
+// public:
+// 	class iterator
+// 	{
+// 	private:
+// 		Node<T>* ptr;
 
-		T& operator*() { return ptr->data; } //*¿¬»êÀÚ µ¥ÀÌÅÍ¸¦ ÂüÁ¶ÇüÅÂ¸¦ ¹ÝÈ¯
+// 	public: //2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 		iterator() :ptr(nullptr) {}
+// 		iterator(Node<T>* p) : ptr(p) {}
 
-		iterator& operator++() //++it
-		{
-			ptr = ptr->next;
-			return *this;
-		}
+// 		T& operator*() { return ptr->data; } //*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½È¯
 
-		iterator& operator--() //--it
-		{
-			ptr = ptr->prev;
-			return *this;
-		}
+// 		iterator& operator++() //++it
+// 		{
+// 			ptr = ptr->next;
+// 			return *this;
+// 		}
 
-		bool operator == (const iterator& it) const
-		{
-			return ptr == it.ptr;
-		}
+// 		iterator& operator--() //--it
+// 		{
+// 			ptr = ptr->prev;
+// 			return *this;
+// 		}
 
-		bool operator != (const iterator& it) const
-		{
-			return ptr != it.ptr;
-		}
+// 		bool operator == (const iterator& it) const
+// 		{
+// 			return ptr == it.ptr;
+// 		}
 
-		friend class DoublyLinkedList;
-	};
+// 		bool operator != (const iterator& it) const
+// 		{
+// 			return ptr != it.ptr;
+// 		}
 
-	DoublyLinkedList()
-	{
-		count = 0;
-		header = new Node<T> { T(), nullptr, nullptr }; //t()´Â ÅÛÇÃ¸´ tÀÇ ÃÊ±âÈ­¹®ÀÓ
-		trailer = new Node<T> { T(), nullptr, nullptr };
+// 		friend class DoublyLinkedList;
+// 	};
 
-		header->next = trailer;
-		trailer->prev = header;
+// 	DoublyLinkedList()
+// 	{
+// 		count = 0;
+// 		header = new Node<T> { T(), nullptr, nullptr }; //t()ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ tï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ï¿½ï¿½
+// 		trailer = new Node<T> { T(), nullptr, nullptr };
 
-		// @- [ p | 0 | n ] <-> [ p | 0 | n ] -@ 
-	}
-	~DoublyLinkedList()
-	{
-		while (!empty())
-		{
-			pop_front();
-		}
+// 		header->next = trailer;
+// 		trailer->prev = header;
 
-		delete header; //»ý¼ºÀÚ¿¡¼­ µ¿Àû»ý¼ºÇÑ Çì´õ¿Í Æ®·¹ÀÏ·¯ ÇØÁ¦
-		delete trailer;
-	}
+// 		// @- [ p | 0 | n ] <-> [ p | 0 | n ] -@
+// 	}
+// 	~DoublyLinkedList()
+// 	{
+// 		while (!empty())
+// 		{
+// 			pop_front();
+// 		}
 
-	void insert(const iterator& pos, const T& val) //Æ¯Á¤³ëµåÀÇ Æ÷ÀÎÅÍ, µ¥ÀÌÅÍ
-	{
-		Node<T>* p = pos.ptr;
-		Node<T>* new_node = new Node<T> { val, p->prev, p }; 
-		//µ¥ÀÌÅÍ¸¦ ³Ö°í, ÇÁ¸®ºêÀÇ °ªÀ» Æ¯Á¤³ëµå p°¡ °¡¸®Å°°íÀÖ´Â prevÀ§Ä¡¸¦ ¹Þ°í, ³Ø½ºÆ®´Â p¸¦ °¡¸®Å´ 
-		new_node->prev->next = new_node;
-		// ´º³ëµå°¡ °¡¸®Å°°íÀÖ´Â prev°ªÀ» ³Ø½ºÆ®°¡ °¡¸®Å°°í ±× ³Ø½ºÆ®°¡ »õ·ÎÃß°¡ÇÑ ³ëµå¸¦ °¡¸®Å°°Ô ÇÏ±â 
-		new_node->next->prev = new_node;
+// 		delete header; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
+// 		delete trailer;
+// 	}
 
-		count++; //³ëµå°¡ Ãß°¡µÇ¾ú´Ù´Â Ä«¿îÆ®++
-	}
+// 	void insert(const iterator& pos, const T& val) //Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 	{
+// 		Node<T>* p = pos.ptr;
+// 		Node<T>* new_node = new Node<T> { val, p->prev, p };
+// 		//ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ö°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ pï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½Ö´ï¿½ prevï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Þ°ï¿½, ï¿½Ø½ï¿½Æ®ï¿½ï¿½ pï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å´
+// 		new_node->prev->next = new_node;
+// 		// ï¿½ï¿½ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½Ö´ï¿½ prevï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ï±ï¿½
+// 		new_node->next->prev = new_node;
 
-	void push_front(const  T& val)
-	{
-		insert(begin(), val);
-	}
+// 		count++; //ï¿½ï¿½å°¡ ï¿½ß°ï¿½ï¿½Ç¾ï¿½ï¿½Ù´ï¿½ Ä«ï¿½ï¿½Æ®++
+// 	}
 
-	void push_back(const  T& val)
-	{
-		insert(end(), val);
-	}
+// 	void push_front(const  T& val)
+// 	{
+// 		insert(begin(), val);
+// 	}
 
-	void erase(const iterator& pos)
-	{
-		Node<T>* p = pos.ptr;
+// 	void push_back(const  T& val)
+// 	{
+// 		insert(end(), val);
+// 	}
 
-		p->prev->next = p->next;
-		p->next->prev = p->prev;
+// 	void erase(const iterator& pos)
+// 	{
+// 		Node<T>* p = pos.ptr;
 
-		delete p;
-		count--;
-	}
+// 		p->prev->next = p->next;
+// 		p->next->prev = p->prev;
 
-	void pop_front()
-	{
-		if (!empty())
-			erase(begin());
-	}
+// 		delete p;
+// 		count--;
+// 	}
 
-	void pop_back()
-	{
-		if (!empty())
-			erase(--end());
-	}
+// 	void pop_front()
+// 	{
+// 		if (!empty())
+// 			erase(begin());
+// 	}
 
-	void print_all()
-	{
-		Node<T>* curr = header->next;
+// 	void pop_back()
+// 	{
+// 		if (!empty())
+// 			erase(--end());
+// 	}
 
-		while (curr != trailer)
-		{
-			cout << curr->data << ", ";
-			curr = curr->next;
-		}
-	}
+// 	void print_all()
+// 	{
+// 		Node<T>* curr = header->next;
 
-	void print_reserve()
-	{
-		Node<T>* curr = trailer->prev;
+// 		while (curr != trailer)
+// 		{
+// 			cout << curr->data << ", ";
+// 			curr = curr->next;
+// 		}
+// 	}
 
-		while (curr != header)
-		{
-			cout << curr->data << ", ";
-			curr = curr->prev;
-		}
-	}
+// 	void print_reserve()
+// 	{
+// 		Node<T>* curr = trailer->prev;
 
-	bool empty()
-	{
-		return count == 0;
-	}
+// 		while (curr != header)
+// 		{
+// 			cout << curr->data << ", ";
+// 			curr = curr->prev;
+// 		}
+// 	}
 
-	int size()
-	{
-		return count;
-	}
+// 	bool empty()
+// 	{
+// 		return count == 0;
+// 	}
 
-	iterator begin() const
-	{
-		return iterator(header->next);
-	}
+// 	int size()
+// 	{
+// 		return count;
+// 	}
 
-	iterator end() const
-	{
-		return iterator(trailer);
-	}
+// 	iterator begin() const
+// 	{
+// 		return iterator(header->next);
+// 	}
 
-	iterator find(const T& val)
-	{
-		Node<T>* curr = header->next;
+// 	iterator end() const
+// 	{
+// 		return iterator(trailer);
+// 	}
 
-		while (curr->data != val && curr != trailer)
-			curr = curr->next;
+// 	iterator find(const T& val)
+// 	{
+// 		Node<T>* curr = header->next;
 
-		return iterator(curr);
-	}
-};
+// 		while (curr->data != val && curr != trailer)
+// 			curr = curr->next;
 
-int main()
-{
-	DoublyLinkedList<int> ll;
+// 		return iterator(curr);
+// 	}
+// };
 
-	ll.push_back(10);
-	ll.push_back(20);
-	ll.push_back(30);
+// int main()
+// {
+// 	DoublyLinkedList<int> ll;
 
-	auto it = ll.find(20);
+// 	ll.push_back(10);
+// 	ll.push_back(20);
+// 	ll.push_back(30);
 
-	if (it != ll.end())
-		ll.insert(it, 50);
+// 	auto it = ll.find(20);
 
-	for (auto n : ll)
-		cout << n << ", ";
+// 	if (it != ll.end())
+// 		ll.insert(it, 50);
 
-	cout << endl;
-}
+// 	for (auto n : ll)
+// 		cout << n << ", ";
+
+// 	cout << endl;
+// }
